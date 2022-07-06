@@ -8,6 +8,6 @@ images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-re
   entrypoint: gcloud
   args: ['run', 'deploy', 'first-service', '--image', 
     'us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image', 
-    '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
+    '--region', 'us-central1']
 
 
