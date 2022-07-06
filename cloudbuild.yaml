@@ -7,6 +7,6 @@ steps:
   entrypoint: gcloud
   args: ['run','deploy','first-service','--image', 
     'us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image', 
-    '--region','us-central1','--platform','managed','--memory','8Gi','--cpu','8','--timeout','300']
+    '--region','us-central1','--platform','managed','--timeout','300']
 images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
 
