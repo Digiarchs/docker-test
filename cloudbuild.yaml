@@ -2,8 +2,8 @@ steps:
 ##Build the docker image from the code using the docker file
   - name: 'gcr.io/cloud-builders/docker'
     args: [ 'build', '-t', 'us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image:tag1', '.' ]
-  images:
-  - 'us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image:tag1'
+images:
+- 'us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image:tag1'
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args: ['run', 'deploy', 'first-service', '--image', 'us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image:tag1', '--region', 'us-central1', 'managed', '--allow-unauthenticated']
