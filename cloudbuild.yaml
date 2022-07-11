@@ -6,6 +6,7 @@ steps:
 ## Run a sonarscan
 - name: 'gcr.io/dev-environment-orgwebsite/sonar-scanner:latest'
   args:
+  - '-X'
   - '-Dsonar.organization=digiarchs'
   - '-Dsonar.projectKey=Digiarchs_docker-test'
   - '-Dsonar.sources=.'
