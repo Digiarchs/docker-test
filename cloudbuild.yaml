@@ -4,14 +4,13 @@ steps:
   args: [ 'build', '-t', 'us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image', '.' ]
   
 ##Run a sonarscan
-steps:
-  - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
-    args:
-    - '-Dsonar.host.url=https://sonarcloud.io'
-    - '-Dsonar.login=dockerweb'
-    - '-Dsonar.projectKey=9d15c611dfe721b694b4472c188e218884da9ca0'
-    - '-Dsonar.organization=digiarchs'
-    - '-Dsonar.sources=.'
+- name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
+  args:
+  - '-Dsonar.host.url=https://sonarcloud.io'
+  - '-Dsonar.login=dockerweb'
+  - '-Dsonar.projectKey=9d15c611dfe721b694b4472c188e218884da9ca0'
+  - '-Dsonar.organization=digiarchs'
+  - '-Dsonar.sources=.'
 tags: ['cloud-builders-community']
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
