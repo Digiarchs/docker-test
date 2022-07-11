@@ -11,7 +11,7 @@ steps:
   - '-Dsonar.projectKey=9d15c611dfe721b694b4472c188e218884da9ca0'
   - '-Dsonar.organization=digiarchs'
   - '-Dsonar.sources=.'
-tags: ['cloud-builders-community']
+  tags: ['cloud-builders-community']
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
