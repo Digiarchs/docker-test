@@ -11,7 +11,6 @@ steps:
   - '-Dsonar.projectKey=9d15c611dfe721b694b4472c188e218884da9ca0'
   - '-Dsonar.organization=digiarchs'
   - '-Dsonar.sources=.'
-  tags: ['cloud-builders-community']
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
@@ -19,4 +18,5 @@ steps:
     'us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image', 
     '--region','us-central1','--platform','managed','--allow-unauthenticated','--timeout','300']
 images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
+tags: ['cloud-builders-community']
 
