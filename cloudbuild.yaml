@@ -12,10 +12,7 @@ steps:
   - '-Dsonar.sources=.'
   - '-Dsonar.host.url=https://sonarcloud.io'
   secretEnv: ['SONAR_TOKEN']
-availableSecrets:
-  secretManager:
-  - versionName: projects/$PROJECT_ID/secrets/SONAR_TOKEN/versions/latest
-    env: 'SONAR_TOKEN'
+
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
   args: ['run','deploy','first-service','--image', 
@@ -23,5 +20,9 @@ availableSecrets:
     '--region','us-central1','--platform','managed','--allow-unauthenticated','--timeout','300']
 images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
 tags: ['cloud-builders-community']
+availableSecrets:
+  secretManager:
+  - versionName: projects/$PROJECT_ID/secrets/SONAR_TOKEN/versions/latest
+    env: 'SONAR_TOKEN'
 
 
