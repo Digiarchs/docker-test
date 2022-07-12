@@ -1,15 +1,15 @@
 steps:
-  - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
-    args:
-    - '-Dsonar.organization=digiarchs'
-    - '-Dsonar.projectKey=Digiarchs_docker-test'
-    - '-Dsonar.sources=.'
-    - '-Dsonar.host.url=https://sonarcloud.io'
-    secretEnv: ['SONAR_TOKEN']
+- name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
+  args: 
+  - '-Dsonar.organization=digiarchs'
+  - '-Dsonar.projectKey=Digiarchs_docker-test'
+  - '-Dsonar.sources=.'
+  - '-Dsonar.host.url=https://sonarcloud.io'
+  secretEnv: ['SONAR_TOKEN']
 availableSecrets:
   secretManager:
   - versionName: projects/$PROJECT_ID/secrets/SONAR_TOKEN/versions/latest
-   env: 'SONAR_TOKEN'
+    env: 'SONAR_TOKEN'
 tags: ['cloud-builders-community']
   
 ##Build the docker image from the code using the docker file
