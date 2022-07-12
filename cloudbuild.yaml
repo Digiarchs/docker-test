@@ -1,4 +1,5 @@
 steps:
+##Check the source code on sonarcloud
 - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
   args: 
   - '-Dsonar.organization=digiarchs'
@@ -13,12 +14,12 @@ availableSecrets:
 tags: ['cloud-builders-community']
   
 ##Build the docker image from the code using the docker file
-#- name: 'gcr.io/cloud-builders/docker'
-#  args: [ 'build', '-t', 'us-east1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image', '.' ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'us-east1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image', '.' ]
 ##Push docker image to artifactory repository
-#- name: 'gcr.io/cloud-builders/docker'
-#  args: ['push', 'us-east-1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image']
-#images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-east-1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image']
+images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
 
 #- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
 #  entrypoint: gcloud
