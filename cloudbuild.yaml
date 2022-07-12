@@ -10,12 +10,12 @@ steps:
 
 #[Start Docker_build]
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-east1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image', '.' ]
+  args: [ 'build', '-t', 'us-east-1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image', '.' ]
 #[End Docker_build]
 
 #[Start Docker_push to artifactory repository]
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-east-1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image:latest']
+  args: ['push', 'us-east-1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image']
 #[End Docker_push to artifactory repository]
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -24,7 +24,7 @@ steps:
     'us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image', 
     '--region','us-central1','--platform','managed','--allow-unauthenticated','--timeout','300']
 
-#images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
+#images: ['us-east-1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
 availableSecrets:
   secretManager:
   - versionName: projects/$PROJECT_ID/secrets/SONAR_TOKEN/versions/latest
