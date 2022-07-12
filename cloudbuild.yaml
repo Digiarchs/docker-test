@@ -5,7 +5,7 @@ steps:
 ##Push docker image to artifactory repository
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'us-east-1-docker.pkg.dev/$PROJECT_ID/digiarchs-docker-repo/hellodocker-image']
-images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
+#images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
   
 ## Run a sonarscan
 - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
@@ -22,7 +22,7 @@ images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-re
   args: ['run','deploy','first-service','--image', 
     'us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image', 
     '--region','us-central1','--platform','managed','--allow-unauthenticated','--timeout','300']
-#images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
+images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
 tags: ['cloud-builders-community']
 availableSecrets:
   secretManager:
