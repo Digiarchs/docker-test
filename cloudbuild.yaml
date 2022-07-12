@@ -15,7 +15,7 @@ steps:
 
 #[Start Docker_push to artifactory repository]
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-east-1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image']
+  args: ['push', 'us-east-1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image:latest']
 #[End Docker_push to artifactory repository]
 
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
