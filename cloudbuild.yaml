@@ -1,5 +1,6 @@
 steps:
 ##Check the source code on sonarcloud
+##For quality gates
 - name: 'gcr.io/$PROJECT_ID/sonar-scanner:latest'
   args: 
   - '-Dsonar.organization=digiarchs'
