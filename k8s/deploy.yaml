@@ -1,0 +1,41 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "first-web"
+  namespace: "default"
+  labels:
+    app: "first-web"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: "first-web"
+  template:
+    metadata:
+      labels:
+        app: "first-web"
+    spec:
+      containers:
+      - name: "hellodocker-image-sha256-1"
+        image: "us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image@sha256:0ec6bd7f0e1a69406de642dd13de4b42b385383001d4cd04cf10b098d09c470b"
+---
+apiVersion: "autoscaling/v2beta1"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: "first-web-hpa-ksar"
+  namespace: "default"
+  labels:
+    app: "first-web"
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: "first-web"
+    apiVersion: "apps/v1"
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: "Resource"
+    resource:
+      name: "cpu"
+      targetAverageUtilization: 80
