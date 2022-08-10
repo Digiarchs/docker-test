@@ -28,7 +28,7 @@ steps:
 #[Start Deployment to Kubernetes Cluster]
 - name: 'gcr.io/cloud-builders/gke-deploy'
   args:
-    - --run
+    - run
     - --filename=k8s/deploy.yaml
     - --image=us-east1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image
     - --location=us-east5-a
