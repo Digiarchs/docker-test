@@ -19,11 +19,21 @@ steps:
   args: ['push', 'us-east1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image']
 #[End Docker_push to artifactory repository]
 
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-  args: ['run','deploy','first-service','--image', 
-    'us-east1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image', 
-    '--region','us-central1','--platform','managed','--allow-unauthenticated','--timeout','300']
+#- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+#  entrypoint: gcloud
+#  args: ['run','deploy','first-service','--image', 
+#    'us-east1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image', 
+#    '--region','us-central1','--platform','managed','--allow-unauthenticated','--timeout','300']
+
+[Start Deployment to Kubernetes Cluster]
+- name: 'gcr.io/cloud-builders/gke-deploy'
+  args:
+    - --run
+    - --filename=k8s/deploy.yaml
+    - --image=us-east1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image
+    - --location=us-east5-a
+    - --cluster=my-dev-env-cluster
+[End Deployment to Kubernetes Cluster]
 
 #images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
 availableSecrets:
