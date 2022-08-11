@@ -32,7 +32,7 @@ steps:
     - --filename=k8s/deploy.yaml
     - --image=us-east1-docker.pkg.dev/${PROJECT_ID}/digiarchs-docker-repo/hellodocker-image
     - --location=us-east5-a
-    - --cluster=my-dev-env-cluster
+    - --cluster=cluster1
 #[End Deployment to Kubernetes Cluster]
 
 #images: ['us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image']
