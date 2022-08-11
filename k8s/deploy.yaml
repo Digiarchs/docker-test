@@ -19,8 +19,7 @@ spec:
       containers:
       - name: "hellodocker-image-sha256-1"
         image: "us-east1-docker.pkg.dev/dev-environment-orgwebsite/digiarchs-docker-repo/hellodocker-image@sha256:02ba246ae5ffa798e3263c15d9c5eea8aca14ff7463b691406cbda54d2202d4d"
-        ports:
-        - containerPort: 8080
+
 ---
 apiVersion: "autoscaling/v2beta1"
 kind: "HorizontalPodAutoscaler"
